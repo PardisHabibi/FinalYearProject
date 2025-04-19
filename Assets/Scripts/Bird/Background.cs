@@ -12,7 +12,7 @@ public class Background : MonoBehaviour
     }
 
     //Move Background
-    void Update()
+    private void Update()
     {
         meshRenderer.material.mainTextureOffset += new Vector2(speed * Time.deltaTime, 0);
     }

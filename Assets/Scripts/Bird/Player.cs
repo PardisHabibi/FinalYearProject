@@ -61,10 +61,10 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.tag == "Lose")
         {
-            FindAnyObjectByType<GameManager>().GameOver();
+            FindAnyObjectByType<GameManagerBird>().GameOver();
         } else if (other.gameObject.tag == "Score")
         {
-            FindAnyObjectByType<GameManager>().IncreaseScore();
+            FindAnyObjectByType<GameManagerBird>().IncreaseScore();
         }
     }
 }
