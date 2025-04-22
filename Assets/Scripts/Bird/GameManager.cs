@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameManagerBird : MonoBehaviour
 {
-    public Player player;
+    public BirdPlayer player;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highscoreText;
     public GameObject play;

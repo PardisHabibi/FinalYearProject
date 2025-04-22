@@ -2,7 +2,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Player : MonoBehaviour
+public class BirdPlayer : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
     public Sprite[] sprites;
