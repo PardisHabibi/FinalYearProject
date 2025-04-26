@@ -6,7 +6,31 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: b8d2f8b22fa91d94eb214c0745de6f6c
+  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Activities/Bird.unity
+    guid: 22c8af6a15f94f44c93a5dea0045d0c6
+  - enabled: 1
+    path: Assets/Scenes/Activities/Dino.unity
+    guid: 4dc721dfd7eb8474c8ca6dcdd6430364
+  - enabled: 1
+    path: Assets/Scenes/Activities/Snake.unity
+    guid: 258bf2838f38d66498d51c44b76c5d99
+  - enabled: 1
+    path: Assets/Scenes/Activities/Space.unity
+    guid: f566c30bb4416ee488902f20da5713e6
+  - enabled: 1
+    path: Assets/Scenes/StatIncrease/Food.unity
+    guid: 6036ba251fbd9cf439f59ade4e7858e2
+  - enabled: 1
+    path: Assets/Scenes/StatIncrease/Bathroom.unity
+    guid: 6f709e7281da932468a3243e97875fca
+  - enabled: 1
+    path: Assets/Scenes/StatIncrease/Running.unity
+    guid: 81177dacb2aa7bb4187a0341c9a7f7ec
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

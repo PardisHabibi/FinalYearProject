@@ -14,8 +14,20 @@ public class SnakePlayer : MonoBehaviour
     private readonly List<Vector3> previousPositions = new();
     public int initialSize = 3;
 
-    private void Start()
+    public GameObject play;
+    public GameObject gameOver;
+
+    private void Awake()
     {
+        Time.timeScale = 0f;
+        play.SetActive(true);
+    }
+
+    public void Play()
+    {
+        play.SetActive(false);
+        gameOver.SetActive(false);
+        Time.timeScale = 1f;
         snakeBody = new List<Transform>() { transform };
         for (int i = 0; i < initialSize; i++)
         {
@@ -62,16 +74,22 @@ public class SnakePlayer : MonoBehaviour
 
         previousPositions.Insert(0, prevPosition);
 
-        for (int i = 0; i < snakeBody.Count - 1; i++)
+        if (previousPositions.Count >= snakeBody.Count)
         {
-            snakeBody[i + 1].position = previousPositions[i];
+            for (int i = 0; i < snakeBody.Count - 1; i++)
+            {
+                snakeBody[i + 1].position = previousPositions[i];
+            }
         }
     }
 
     private void Grow()
     {
         Transform body = Instantiate(BodyPrefab);
-        body.position = snakeBody[^1].position;
+        Vector3 spawnPosition = snakeBody[^1].position;
+
+        spawnPosition -= direction * moveDistance;
+        body.position = spawnPosition;
 
         snakeBody.Add(body);
     }
@@ -83,7 +101,16 @@ public class SnakePlayer : MonoBehaviour
             Grow();
         } else if (collision.CompareTag("Lose"))
         {
+            gameOver.SetActive(true);
+            Time.timeScale = 0f;
 
+            PlayerStats.Instance.Health--;
+            PlayerStats.Instance.Hygiene -= 0.5f;
+            PlayerStats.Instance.Carbs -= 0f;
+            PlayerStats.Instance.Proteins -= 0f;
+            PlayerStats.Instance.Fats -= 0f;
+            PlayerStats.Instance.Water -= 0f;
+            Debug.Log("lose");
         }
     }
 }

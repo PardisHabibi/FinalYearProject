@@ -1,7 +1,6 @@
 using TMPro;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 public class GameManagerBird : MonoBehaviour
 {
@@ -44,6 +43,14 @@ public class GameManagerBird : MonoBehaviour
         gameOver.SetActive(true);
         play.SetActive(true);
         UpdateHighscore();
+
+        PlayerStats.Instance.Health--;
+        PlayerStats.Instance.Hygiene -= 0.5f;
+        PlayerStats.Instance.Carbs -= 0f;
+        PlayerStats.Instance.Proteins -= 0f;
+        PlayerStats.Instance.Fats -= 0f;
+        PlayerStats.Instance.Water -= 0f;
+
         Time.timeScale = 0f;
         Debug.Log("lose");
     }

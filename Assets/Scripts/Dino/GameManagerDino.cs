@@ -91,6 +91,13 @@ public class GameManagerDino : MonoBehaviour
         enabled = false;
         UpdateHighscore();
 
+        PlayerStats.Instance.Health--;
+        PlayerStats.Instance.Hygiene -= 0.5f;
+        PlayerStats.Instance.Carbs -= 0f;
+        PlayerStats.Instance.Proteins -= 0f;
+        PlayerStats.Instance.Fats -= 0f;
+        PlayerStats.Instance.Water -= 0f;
+
         character.gameObject.SetActive(false);
         spawner.gameObject.SetActive(false);
         gameOver.SetActive(true);

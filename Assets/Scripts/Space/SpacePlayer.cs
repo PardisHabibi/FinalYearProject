@@ -44,6 +44,12 @@ public class SpacePlayer : MonoBehaviour
         if(collision.gameObject.layer == LayerMask.NameToLayer("Invader") || collision.gameObject.layer == LayerMask.NameToLayer("InvaderBullet"))
         {
             // LOSE
+            PlayerStats.Instance.Health--;
+            PlayerStats.Instance.Hygiene -= 0.5f;
+            PlayerStats.Instance.Carbs -= 0f;
+            PlayerStats.Instance.Proteins -= 0f;
+            PlayerStats.Instance.Fats -= 0f;
+            PlayerStats.Instance.Water -= 0f;
         }
     }
 }
