@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Lose
   - Score
+  - Canvas
   layers:
   - Default
   - TransparentFX
