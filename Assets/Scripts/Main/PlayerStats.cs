@@ -4,12 +4,16 @@ public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats Instance { get; set; }
 
-    public float Health { get; set; }
-    public float Hygiene { get; set; }
-    public float Carbs {  get; set; }
-    public float Proteins {  get; set; }
-    public float Fats {  get; set; }
-    public float Water {  get; set; }
+    private float health, hygiene, carbs, proteins, fats, water;
+
+    private const float MinValue = 0f;
+    private const float MaxValue = 20f;
+    public float Health { get => health; set => health = Mathf.Clamp(value, MinValue, MaxValue); }
+    public float Hygiene { get => hygiene; set => hygiene = Mathf.Clamp(value, MinValue, MaxValue); }
+    public float Carbs {  get => carbs; set => carbs = Mathf.Clamp(value, MinValue, MaxValue); }
+    public float Proteins {  get => proteins; set => proteins = Mathf.Clamp(value, MinValue, MaxValue); }
+    public float Fats {  get => fats; set => fats = Mathf.Clamp(value, MinValue, MaxValue); }
+    public float Water {  get => water; set => water = Mathf.Clamp(value, MinValue, MaxValue); }
 
     private void Awake()
     {

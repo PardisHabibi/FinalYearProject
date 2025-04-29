@@ -10,6 +10,9 @@ public class CanvasManager : MonoBehaviour
     public Slider fats;
     public Slider water;
 
+    private const float MaxStatValue = 20f;
+    private const float MinStatValue = 0f;
+
     private void Start()
     {
         health.onValueChanged.AddListener(OnHealthChange);
@@ -29,37 +32,37 @@ public class CanvasManager : MonoBehaviour
 
     private void OnHealthChange(float value)
     {
-        PlayerStats.Instance.Health = value;
+        PlayerStats.Instance.Health = Mathf.Clamp(value, MinStatValue, MaxStatValue);
         PlayerStats.Instance.SaveStats();
     }
 
     private void OnHygieneChange(float value)
     {
-        PlayerStats.Instance.Hygiene = value;
+        PlayerStats.Instance.Hygiene = Mathf.Clamp(value, MinStatValue, MaxStatValue);
         PlayerStats.Instance.SaveStats();
     }
 
     private void OnCarbsChange(float value)
     {
-        PlayerStats.Instance.Carbs = value;
+        PlayerStats.Instance.Carbs = Mathf.Clamp(value, MinStatValue, MaxStatValue); 
         PlayerStats.Instance.SaveStats();
     }
 
     private void OnProteinsChange(float value)
     {
-        PlayerStats.Instance.Proteins = value;
+        PlayerStats.Instance.Proteins = Mathf.Clamp(value, MinStatValue, MaxStatValue);
         PlayerStats.Instance.SaveStats();
     }
 
     private void OnFatsChange(float value)
     {
-        PlayerStats.Instance.Fats = value;
+        PlayerStats.Instance.Fats = Mathf.Clamp(value, MinStatValue, MaxStatValue); 
         PlayerStats.Instance.SaveStats();
     }
 
     private void OnWaterChange(float value)
     {
-        PlayerStats.Instance.Water = value;
+        PlayerStats.Instance.Water = Mathf.Clamp(value, MinStatValue, MaxStatValue);
         PlayerStats.Instance.SaveStats();
     }
 }

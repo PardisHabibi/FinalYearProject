@@ -24,6 +24,7 @@ public class RunningManager : MonoBehaviour
     {
         IncreaseSpeed();
         LoseSpeed();
+        UpdateStats();
     }
     private void IncreaseSpeed()
     {
@@ -64,6 +65,13 @@ public class RunningManager : MonoBehaviour
             speed -= speedDecreaseRate * Time.deltaTime;  
             speed = Mathf.Clamp(speed, minSpeed, maxSpeed);  
         }
+    }
+
+    private void UpdateStats()
+    {
+        if (PlayerStats.Instance == null) { return; }
+        PlayerStats.Instance.Health += speed * 0.01f * Time.deltaTime;
+        PlayerStats.Instance.Hygiene -= speed * 0.005f * Time.deltaTime;
     }
 }
         

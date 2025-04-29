@@ -42,10 +42,11 @@ public class GameManagerBird : MonoBehaviour
     {
         gameOver.SetActive(true);
         play.SetActive(true);
+        player.enabled=false;
         UpdateHighscore();
 
-        PlayerStats.Instance.Health--;
-        PlayerStats.Instance.Hygiene -= 0.5f;
+        PlayerStats.Instance.Health -= 0f;
+        PlayerStats.Instance.Hygiene -= 0f;
         PlayerStats.Instance.Carbs -= 0f;
         PlayerStats.Instance.Proteins -= 0f;
         PlayerStats.Instance.Fats -= 0f;
