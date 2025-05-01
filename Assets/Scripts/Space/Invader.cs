@@ -10,7 +10,7 @@ public class Invader : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerBullet"))
         {
             InvaderHit.Invoke();
-           gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 }

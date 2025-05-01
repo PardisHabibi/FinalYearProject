@@ -25,7 +25,8 @@ public class DinoSpriteAnimation : MonoBehaviour
             frame = 0;
         }
 
-        if (frame >=0 && frame < sprites.Length){
+        if (frame >= 0 && frame < sprites.Length)
+        {
             spriteRenderer.sprite = sprites[frame];
         }
 

@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats Instance { get; set; }
+    public CanvasManager canvasManager;
 
     private float health, hygiene, carbs, proteins, fats, water;
 
@@ -20,12 +21,22 @@ public class PlayerStats : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); 
+            DontDestroyOnLoad(gameObject);
+            canvasManager = FindAnyObjectByType<CanvasManager>();
             LoadStats(); 
         }
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    public void RefreshUI()
+    {
+        var canvas = FindAnyObjectByType<CanvasManager>();
+        if (canvas != null)
+        {
+            canvas.UpdateUI();
         }
     }
 

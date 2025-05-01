@@ -1,4 +1,7 @@
+using System;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RunningManager : MonoBehaviour
 {
@@ -7,6 +10,13 @@ public class RunningManager : MonoBehaviour
     public float maxSpeed = 70f;
     public float minSpeed = 20f;
     public float speedDecreaseRate = 1f;
+
+    public GameObject play;
+    public TextMeshProUGUI complete;
+
+    public float progress;
+    public float maxProgress = 500f;
+    public Slider runTime;
 
     private void Awake()
     {
@@ -18,6 +28,14 @@ public class RunningManager : MonoBehaviour
         {
             DestroyImmediate(gameObject);
         }
+
+        Time.timeScale = 0f;
+    }
+
+    public void Play()
+    {
+        Time.timeScale = 1f;
+        play.SetActive(false);
     }
 
     private void Update()
@@ -25,6 +43,19 @@ public class RunningManager : MonoBehaviour
         IncreaseSpeed();
         LoseSpeed();
         UpdateStats();
+
+        progress += speed * Time.deltaTime;
+
+        if (runTime != null)
+        {
+            runTime.value = progress;
+        }
+
+        if (progress >= maxProgress)
+        {
+            Time.timeScale = 0f;
+            complete.gameObject.SetActive(true);
+        }
     }
     private void IncreaseSpeed()
     {
@@ -70,8 +101,9 @@ public class RunningManager : MonoBehaviour
     private void UpdateStats()
     {
         if (PlayerStats.Instance == null) { return; }
-        PlayerStats.Instance.Health += speed * 0.01f * Time.deltaTime;
-        PlayerStats.Instance.Hygiene -= speed * 0.005f * Time.deltaTime;
+        PlayerStats.Instance.Health += speed * 0.02f * Time.deltaTime;
+        PlayerStats.Instance.Hygiene -= speed * 0.01f * Time.deltaTime;
+        PlayerStats.Instance.RefreshUI();
     }
 }
         

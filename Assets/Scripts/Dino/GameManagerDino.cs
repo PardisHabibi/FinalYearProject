@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManagerDino : MonoBehaviour
 {
@@ -9,12 +10,13 @@ public class GameManagerDino : MonoBehaviour
     public float initialSpeed = 1f;
     public float speedIncrease = 2f;
     public float speed { get; private set; }
-    private Character character;
-    private ObstacleSpawner spawner;
+    [SerializeField] private Character character;
+    [SerializeField] private ObstacleSpawner spawner;
 
     public GameObject play;
     public GameObject gameOver;
     public GameObject retry;
+    public TextMeshProUGUI instruction;
 
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highscoreText;
@@ -31,6 +33,8 @@ public class GameManagerDino : MonoBehaviour
             DestroyImmediate(Instance);
         }
 
+        UpdateHighscore();
+        Time.timeScale = 0f;
         speed = 0f;
         enabled = false;
         gameOver.SetActive(false);
@@ -44,15 +48,6 @@ public class GameManagerDino : MonoBehaviour
         {
             Instance = null;
         }
-    }
-
-    //set starting game speed
-    private void Start()
-    {
-        character = FindAnyObjectByType<Character>();
-        spawner = FindAnyObjectByType<ObstacleSpawner>();
-
-        Play();
     }
 
     //increase game speed overtime
@@ -72,12 +67,14 @@ public class GameManagerDino : MonoBehaviour
         }
 
         speed = initialSpeed;
+        Time.timeScale = 1f;
         score = 0f;
         enabled = true;
 
         character.gameObject.SetActive(true);
         spawner.gameObject.SetActive(true);
 
+        instruction.gameObject.SetActive(false);
         play.SetActive(false);
         gameOver.SetActive(false);
         retry.SetActive(false);
@@ -85,23 +82,31 @@ public class GameManagerDino : MonoBehaviour
         UpdateHighscore();
     }
 
+    public void Retry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     public void GameOver()
     {
         speed = 0f;
+        Time.timeScale = 0f;
         enabled = false;
         UpdateHighscore();
-
-        PlayerStats.Instance.Health--;
-        PlayerStats.Instance.Hygiene -= 0.5f;
-        PlayerStats.Instance.Carbs -= 0f;
-        PlayerStats.Instance.Proteins -= 0f;
-        PlayerStats.Instance.Fats -= 0f;
-        PlayerStats.Instance.Water -= 0f;
 
         character.gameObject.SetActive(false);
         spawner.gameObject.SetActive(false);
         gameOver.SetActive(true);
         retry.SetActive(true);
+
+        PlayerStats.Instance.Health -= 1f;
+        PlayerStats.Instance.Hygiene -= 0.5f;
+        PlayerStats.Instance.Carbs -= 2f;
+        PlayerStats.Instance.Proteins -= 1f;
+        PlayerStats.Instance.Fats -= 0.5f;
+        PlayerStats.Instance.Water -= 0f;
+        PlayerStats.Instance.RefreshUI();
+
         Debug.Log("lose");
     }
 

@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SnakePlayer : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class SnakePlayer : MonoBehaviour
 
     public GameObject play;
     public GameObject gameOver;
+    public GameObject retry;
 
     private void Awake()
     {
@@ -102,15 +104,22 @@ public class SnakePlayer : MonoBehaviour
         } else if (collision.CompareTag("Lose"))
         {
             gameOver.SetActive(true);
+            retry.SetActive(true);
             Time.timeScale = 0f;
 
-            PlayerStats.Instance.Health--;
+            PlayerStats.Instance.Health -= 1f;
             PlayerStats.Instance.Hygiene -= 0.5f;
-            PlayerStats.Instance.Carbs -= 0f;
-            PlayerStats.Instance.Proteins -= 0f;
-            PlayerStats.Instance.Fats -= 0f;
-            PlayerStats.Instance.Water -= 0f;
+            PlayerStats.Instance.Carbs -= 1f;
+            PlayerStats.Instance.Proteins -= 0.5f;
+            PlayerStats.Instance.Fats -= 2f;
+            PlayerStats.Instance.Water -= 2f;
+            PlayerStats.Instance.RefreshUI();
             Debug.Log("lose");
         }
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

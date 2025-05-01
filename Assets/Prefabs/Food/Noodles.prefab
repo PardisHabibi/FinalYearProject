@@ -45,6 +45,14 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 839741792441158128, guid: 394502714dd36d44dbbdb461e4a309ba, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 839741792441158128, guid: 394502714dd36d44dbbdb461e4a309ba, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 839741792441158128, guid: 394502714dd36d44dbbdb461e4a309ba, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -83,6 +91,22 @@ PrefabInstance:
     - target: {fileID: 839741792441158128, guid: 394502714dd36d44dbbdb461e4a309ba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685208427148371198, guid: 394502714dd36d44dbbdb461e4a309ba, type: 3}
+      propertyPath: fats
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685208427148371198, guid: 394502714dd36d44dbbdb461e4a309ba, type: 3}
+      propertyPath: carbs
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685208427148371198, guid: 394502714dd36d44dbbdb461e4a309ba, type: 3}
+      propertyPath: water
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685208427148371198, guid: 394502714dd36d44dbbdb461e4a309ba, type: 3}
+      propertyPath: proteins
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3291219465941881944, guid: 394502714dd36d44dbbdb461e4a309ba, type: 3}
       propertyPath: m_Name

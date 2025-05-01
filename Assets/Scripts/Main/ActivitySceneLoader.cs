@@ -5,15 +5,17 @@ using UnityEngine.UIElements;
 public class ActivitySceneLoader : MonoBehaviour
 {
     public GameObject alert;
+    public GameObject activity;
 
     public void ActivityButton(string sceneName)
     {
-        if (PlayerStats.Instance.Health > 0 && PlayerStats.Instance.Hygiene > 0)
+        if (PlayerStats.Instance.Health > 4 && PlayerStats.Instance.Hygiene > 4)
         {
             SceneManager.LoadScene(sceneName);
         } else
         {
-            alert.gameObject.SetActive(true);
+            activity.SetActive(false);
+            alert.SetActive(true);
         }
     }
 }

@@ -8,6 +8,7 @@ public class FoodSpawner : MonoBehaviour
     public GameObject[] foods;
     public int foodsToSpawn = 5;
     public BoxCollider2D foodArea;
+    public RectTransform plate;
     public Canvas canvas;
 
     private void Start()
@@ -28,6 +29,12 @@ public class FoodSpawner : MonoBehaviour
 
             GameObject randomFood = foods[Random.Range(0, foods.Length)];
             Instantiate(randomFood, position, Quaternion.identity, canvas.transform);
+
+            FoodMove foodScript = randomFood.GetComponent<FoodMove>();
+            if (foodScript != null)
+            {
+                foodScript.plateArea = plate.GetComponent<BoxCollider2D>();
+            }
         }
     }
 }

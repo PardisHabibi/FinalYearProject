@@ -10,6 +10,7 @@ public class GameManagerBird : MonoBehaviour
     public GameObject play;
     public GameObject gameOver;
     private int score;
+    public TextMeshProUGUI instruction;
  
     // Start the game paused
     private void Awake()
@@ -17,6 +18,7 @@ public class GameManagerBird : MonoBehaviour
         Time.timeScale = 0f;
         play.SetActive(true);
         player.enabled = false;
+        UpdateHighscore();
     }
 
     //Remove extra objects and start game
@@ -27,6 +29,7 @@ public class GameManagerBird : MonoBehaviour
         UpdateHighscore();
         play.SetActive(false);
         gameOver.SetActive(false);
+        instruction.gameObject.SetActive(false);
         Time.timeScale = 1f;
         player.enabled = true;
         PipeMovement[] pipes = FindObjectsOfType<PipeMovement>();
@@ -45,12 +48,14 @@ public class GameManagerBird : MonoBehaviour
         player.enabled=false;
         UpdateHighscore();
 
-        PlayerStats.Instance.Health -= 0f;
-        PlayerStats.Instance.Hygiene -= 0f;
-        PlayerStats.Instance.Carbs -= 0f;
-        PlayerStats.Instance.Proteins -= 0f;
-        PlayerStats.Instance.Fats -= 0f;
-        PlayerStats.Instance.Water -= 0f;
+        PlayerStats.Instance.Health -= 3f;
+        PlayerStats.Instance.Hygiene -= 1f;
+        PlayerStats.Instance.Carbs -= 3f;
+        PlayerStats.Instance.Proteins -= 2f;
+        PlayerStats.Instance.Fats -= 1f;
+        PlayerStats.Instance.Water -= 1f;
+        PlayerStats.Instance.canvasManager.UpdateUI();
+        PlayerStats.Instance.RefreshUI();
 
         Time.timeScale = 0f;
         Debug.Log("lose");

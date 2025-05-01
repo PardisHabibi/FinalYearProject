@@ -15,11 +15,13 @@ public class Invaders : MonoBehaviour
     public int invadersAlive;
     public float attackRate;
     public Bullet bullet;
+    public GameObject win;
 
     //
     private void Awake()
     {
         InvaderSpawn();
+        invadersAlive = TotalInvaders;
     }
 
     //
@@ -32,6 +34,10 @@ public class Invaders : MonoBehaviour
     private void Update()
     {
         InvaderMovement();
+        if (invadersAlive <= 0)
+        {
+            Win();
+        }
     }
 
     //
@@ -113,5 +119,11 @@ public class Invaders : MonoBehaviour
                 break;
             }
         }
+    }
+
+    private void Win()
+    {
+        Time.timeScale = 0f;
+        win.SetActive(true);
     }
 }

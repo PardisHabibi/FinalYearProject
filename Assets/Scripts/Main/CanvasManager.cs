@@ -9,6 +9,7 @@ public class CanvasManager : MonoBehaviour
     public Slider proteins;
     public Slider fats;
     public Slider water;
+    public Slider volume;
 
     private const float MaxStatValue = 20f;
     private const float MinStatValue = 0f;
@@ -64,5 +65,15 @@ public class CanvasManager : MonoBehaviour
     {
         PlayerStats.Instance.Water = Mathf.Clamp(value, MinStatValue, MaxStatValue);
         PlayerStats.Instance.SaveStats();
+    }
+
+    public void UpdateUI()
+    {
+        health.value = PlayerStats.Instance.Health;
+        hygiene.value = PlayerStats.Instance.Hygiene;
+        carbs.value = PlayerStats.Instance.Carbs;
+        proteins.value = PlayerStats.Instance.Proteins;
+        fats.value = PlayerStats.Instance.Fats;
+        water.value = PlayerStats.Instance.Water;
     }
 }

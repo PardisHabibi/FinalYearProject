@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpacePlayer : MonoBehaviour
 {
@@ -6,6 +7,24 @@ public class SpacePlayer : MonoBehaviour
     public float speed = 5f;
 
     private bool bulletActive;
+
+    public GameObject instructions;
+    public GameObject play;
+    public GameObject gameOver;
+    public GameObject retry;
+
+    private void Awake()
+    {
+        Time.timeScale = 0f;
+        play.SetActive(true);
+    }
+
+    public void Play()
+    {
+        Time.timeScale = 1f;
+        instructions.SetActive(false);
+        play.SetActive(false);
+    }
 
     private void Update()
     {
@@ -39,17 +58,26 @@ public class SpacePlayer : MonoBehaviour
         bulletActive = false;
     }
 
+    public void Retry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.layer == LayerMask.NameToLayer("Invader") || collision.gameObject.layer == LayerMask.NameToLayer("InvaderBullet"))
+        Debug.Log("Collision");
+        if (collision.CompareTag("Lose"))
         {
-            // LOSE
+            Time.timeScale = 0f;
+            gameOver.SetActive(true);
+            retry.SetActive(true);
             PlayerStats.Instance.Health--;
             PlayerStats.Instance.Hygiene -= 0.5f;
-            PlayerStats.Instance.Carbs -= 0f;
-            PlayerStats.Instance.Proteins -= 0f;
-            PlayerStats.Instance.Fats -= 0f;
-            PlayerStats.Instance.Water -= 0f;
+            PlayerStats.Instance.Carbs -= 1f;
+            PlayerStats.Instance.Proteins -= 1f;
+            PlayerStats.Instance.Fats -= 1f;
+            PlayerStats.Instance.Water -= 1f;
+            PlayerStats.Instance.RefreshUI();
         }
     }
 }

@@ -56,6 +56,7 @@ public class BathroomManager : MonoBehaviour
                 isShowering = false;
                 complete.gameObject.SetActive(true);
                 PlayerStats.Instance.Hygiene += maxProgress;
+                PlayerStats.Instance.RefreshUI();
             }
         }
     }
