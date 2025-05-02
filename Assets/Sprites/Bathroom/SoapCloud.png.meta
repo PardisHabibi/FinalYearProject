@@ -260,7 +260,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SoapCloud_0: -2984683732871721550
+      SoapCloud_1: -6913378493191715193
+      SoapCloud_2: -5577101821245912802
+      SoapCloud_3: 795598838463307951
+      SoapCloud_4: 2481624800635745086
+      SoapCloud_5: -696643252036343855
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

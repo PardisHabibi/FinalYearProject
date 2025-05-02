@@ -620,7 +620,28 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      RunningMan_0: -2198477437820752924
+      RunningMan_1: -8999727224604434166
+      RunningMan_10: -7177270810354785405
+      RunningMan_11: -2507280450274339652
+      RunningMan_12: -496772404941172095
+      RunningMan_13: 9081105383274726823
+      RunningMan_14: -351284002112405948
+      RunningMan_15: -3084894621474991040
+      RunningMan_16: 2530953298633908715
+      RunningMan_17: -3476182347810391248
+      RunningMan_18: 699919954455198691
+      RunningMan_19: -7025423847158816292
+      RunningMan_2: 515880142518145967
+      RunningMan_20: 7835433573774690979
+      RunningMan_3: 1145875401702175811
+      RunningMan_4: 1861995186517009566
+      RunningMan_5: -1869585349102245879
+      RunningMan_6: -4117266542519835838
+      RunningMan_7: 4343597556245382120
+      RunningMan_8: -1502482784659054719
+      RunningMan_9: -4745485826795207659
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
