@@ -30,6 +30,6 @@ public class DinoSpriteAnimation : MonoBehaviour
             spriteRenderer.sprite = sprites[frame];
         }
 
-        Invoke(nameof(Animate), 1f / GameManagerDino.Instance.speed);
+        Invoke(nameof(Animate), 1f / GameManagerDino.Instance.Speed);
     }
 }

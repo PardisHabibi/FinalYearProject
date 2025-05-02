@@ -13,7 +13,7 @@ public class Ground : MonoBehaviour
     //Move ground
     private void Update()
     {
-        float speed = GameManagerDino.Instance.speed / transform.localScale.x;
+        float speed = GameManagerDino.Instance.Speed / transform.localScale.x;
         meshRenderer.material.mainTextureOffset +=  Vector2.right * speed * Time.deltaTime;
     }
 }

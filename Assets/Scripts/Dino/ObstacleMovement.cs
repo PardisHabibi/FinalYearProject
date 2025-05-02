@@ -13,7 +13,7 @@ public class ObstacleMovement : MonoBehaviour
     // Moves obstacles and destroys once they reach the end of the screen
     private void Update()
     {
-        transform.position += Vector3.left * GameManagerDino.Instance.speed * Time.deltaTime;
+        transform.position += Vector3.left * GameManagerDino.Instance.Speed * Time.deltaTime;
 
         if (transform.position.x < edge)
         {
