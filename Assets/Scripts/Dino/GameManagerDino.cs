@@ -12,6 +12,7 @@ public class GameManagerDino : MonoBehaviour
     public float speed { get; private set; }
     [SerializeField] private Character character;
     [SerializeField] private ObstacleSpawner spawner;
+    [SerializeField] private AudioClip gameOverSoundClip;
 
     public GameObject play;
     public GameObject gameOver;
@@ -89,6 +90,7 @@ public class GameManagerDino : MonoBehaviour
 
     public void GameOver()
     {
+        SoundManager.instance.PlaySoundClip(gameOverSoundClip, transform, 1f);
         speed = 0f;
         Time.timeScale = 0f;
         enabled = false;

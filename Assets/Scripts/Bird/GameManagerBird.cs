@@ -11,6 +11,7 @@ public class GameManagerBird : MonoBehaviour
     public GameObject gameOver;
     private int score;
     public TextMeshProUGUI instruction;
+    [SerializeField] private AudioClip gameOverSoundClip;
  
     // Start the game paused
     private void Awake()
@@ -43,6 +44,7 @@ public class GameManagerBird : MonoBehaviour
     // End the game
     public void GameOver()
     {
+        SoundManager.instance.PlaySoundClip(gameOverSoundClip, transform, 1f);
         gameOver.SetActive(true);
         play.SetActive(true);
         player.enabled=false;

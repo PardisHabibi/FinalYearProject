@@ -271,6 +271,7 @@ MonoBehaviour:
   play: {fileID: 314130064}
   gameOver: {fileID: 2119288381}
   retry: {fileID: 2110039535}
+  gameOverSoundClip: {fileID: 8300000, guid: e11a5a019377fbd4c81caa0adcb4c236, type: 3}
 --- !u!50 &20443395
 Rigidbody2D:
   serializedVersion: 4
@@ -339,6 +340,7 @@ MonoBehaviour:
   attackRate: 0
   bullet: {fileID: -3382046325421446649, guid: cead7fc4c06bc4e4a8d85c081579b0e6, type: 3}
   win: {fileID: 951851324}
+  winSoundClip: {fileID: 8300000, guid: 7784e7ab59ab376458c07be56b1a8d6f, type: 3}
 --- !u!4 &55507640
 Transform:
   m_ObjectHideFlags: 0
@@ -782,6 +784,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: SpacePlayer, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1705445717}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

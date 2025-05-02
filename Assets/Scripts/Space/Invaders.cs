@@ -16,6 +16,7 @@ public class Invaders : MonoBehaviour
     public float attackRate;
     public Bullet bullet;
     public GameObject win;
+    [SerializeField] private AudioClip winSoundClip;
 
     //
     private void Awake()
@@ -123,6 +124,7 @@ public class Invaders : MonoBehaviour
 
     private void Win()
     {
+        SoundManager.instance.PlaySoundClip(winSoundClip, transform, 1f);
         Time.timeScale = 0f;
         win.SetActive(true);
     }

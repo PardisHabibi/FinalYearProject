@@ -1272,6 +1272,7 @@ MonoBehaviour:
   speedIncrease: 0.5
   character: {fileID: 1418287262}
   spawner: {fileID: 992614247}
+  gameOverSoundClip: {fileID: 8300000, guid: e11a5a019377fbd4c81caa0adcb4c236, type: 3}
   play: {fileID: 1188865940}
   gameOver: {fileID: 2102037824}
   retry: {fileID: 1609316431}

@@ -18,6 +18,7 @@ public class SnakePlayer : MonoBehaviour
     public GameObject play;
     public GameObject gameOver;
     public GameObject retry;
+    [SerializeField] private AudioClip gameOverSoundClip;
 
     private void Awake()
     {
@@ -103,6 +104,7 @@ public class SnakePlayer : MonoBehaviour
             Grow();
         } else if (collision.CompareTag("Lose"))
         {
+            SoundManager.instance.PlaySoundClip(gameOverSoundClip, transform, 1f);
             gameOver.SetActive(true);
             retry.SetActive(true);
             Time.timeScale = 0f;

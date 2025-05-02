@@ -13,6 +13,8 @@ public class SpacePlayer : MonoBehaviour
     public GameObject gameOver;
     public GameObject retry;
 
+    [SerializeField] private AudioClip gameOverSoundClip;
+
     private void Awake()
     {
         Time.timeScale = 0f;
@@ -68,6 +70,7 @@ public class SpacePlayer : MonoBehaviour
         Debug.Log("Collision");
         if (collision.CompareTag("Lose"))
         {
+            SoundManager.instance.PlaySoundClip(gameOverSoundClip, transform, 1f);
             Time.timeScale = 0f;
             gameOver.SetActive(true);
             retry.SetActive(true);
