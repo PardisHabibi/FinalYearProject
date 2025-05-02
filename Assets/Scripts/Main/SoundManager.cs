@@ -42,8 +42,8 @@ public class SoundManager : MonoBehaviour
 
     public void SetSoundVolume(float volume)
     {
-        audioMixer.SetFloat("soundVolume", volume);
-        PlayerPrefs.SetFloat("soundVolume", volume);
+        audioMixer.SetFloat("soundFXVolume", volume);
+        PlayerPrefs.SetFloat("soundFXVolume", volume);
     }
 
     public void SetMusicVolume(float volume)
@@ -55,7 +55,7 @@ public class SoundManager : MonoBehaviour
     private void LoadVolume()
     {
         audioMixer.SetFloat("masterVolume", PlayerPrefs.GetFloat("masterVolume"));
-        audioMixer.SetFloat("soundVolume", PlayerPrefs.GetFloat("soundVolume"));
+        audioMixer.SetFloat("soundFXVolume", PlayerPrefs.GetFloat("soundFXVolume"));
         audioMixer.SetFloat("musicVolume", PlayerPrefs.GetFloat("musicVolume"));
     }
 }
