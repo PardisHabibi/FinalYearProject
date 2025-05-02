@@ -21,6 +21,7 @@ public class SpacePlayer : MonoBehaviour
         play.SetActive(true);
     }
 
+    //Starts Game
     public void Play()
     {
         Time.timeScale = 1f;
@@ -28,6 +29,7 @@ public class SpacePlayer : MonoBehaviour
         play.SetActive(false);
     }
 
+    //Moves player and shoots on keypress
     private void Update()
     {
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
@@ -45,6 +47,7 @@ public class SpacePlayer : MonoBehaviour
         }
     }
 
+    //Spawns bullet and detroys when necessary
     private void Shoot()
     {
         if (!bulletActive)
@@ -65,6 +68,7 @@ public class SpacePlayer : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    // ends game and decreases stats when invader and player collide
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Collision");

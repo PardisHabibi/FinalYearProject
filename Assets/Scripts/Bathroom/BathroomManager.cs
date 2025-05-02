@@ -19,6 +19,7 @@ public class BathroomManager : MonoBehaviour
 
     public Slider bathTime;
 
+    // Set the game to not start and cloud position
     private void Start()
     {
         Time.timeScale = 0f;
@@ -27,6 +28,7 @@ public class BathroomManager : MonoBehaviour
             soapCloud.anchoredPosition = startPos;
     }
 
+    //If user presses play, shower progresses and cloud sprite moves until progress = max progress
     private void Update()
     {
         if (isShowering)
@@ -61,6 +63,7 @@ public class BathroomManager : MonoBehaviour
         }
     }
 
+    // Starts shower
     public void Play()
     {
         Time.timeScale = 1f;

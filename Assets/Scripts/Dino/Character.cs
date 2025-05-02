@@ -36,6 +36,7 @@ public class Character : MonoBehaviour
         character.Move(direction * Time.deltaTime);
     }
 
+    // Call to end the game if the player hits an obstacle
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Lose"))

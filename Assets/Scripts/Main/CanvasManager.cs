@@ -13,6 +13,7 @@ public class CanvasManager : MonoBehaviour
     private const float MaxStatValue = 20f;
     private const float MinStatValue = 0f;
 
+    //Listeners for value changes and sets initial values
     private void Start()
     {
         health.onValueChanged.AddListener(OnHealthChange);
@@ -30,6 +31,7 @@ public class CanvasManager : MonoBehaviour
         water.value = PlayerStats.Instance.Water;
     }
 
+    //Scripts to save values when changed
     private void OnHealthChange(float value)
     {
         PlayerStats.Instance.Health = Mathf.Clamp(value, MinStatValue, MaxStatValue);
@@ -66,6 +68,7 @@ public class CanvasManager : MonoBehaviour
         PlayerStats.Instance.SaveStats();
     }
 
+    //Updates sliders on screen when values change
     public void UpdateUI()
     {
         health.value = PlayerStats.Instance.Health;

@@ -16,6 +16,7 @@ public class FoodSpawner : MonoBehaviour
         spawnFood();
     }
 
+    //Spawns food at random locations in set area
     private void spawnFood()
     {
         for (int i=0; i< foodsToSpawn; i++)

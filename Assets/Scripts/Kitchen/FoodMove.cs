@@ -21,6 +21,7 @@ public class FoodMove : MonoBehaviour, IPointerClickHandler
         rectTransform = GetComponent<RectTransform>();   
     }
 
+    //Moves food onto plate when clicked
     public void OnPointerClick(PointerEventData eventData)
     {
         if (plateArea == null)
@@ -52,6 +53,7 @@ public class FoodMove : MonoBehaviour, IPointerClickHandler
         }
     }
 
+    //Adds food to a list
     private void AddFood(GameObject food)
     {
         if (!foodOnPlate.Contains(food))
@@ -61,6 +63,7 @@ public class FoodMove : MonoBehaviour, IPointerClickHandler
         }
     }
 
+    //Eats food and updates nutrition stats
     public void Eat()
     {
         float totalCarbs = 0;

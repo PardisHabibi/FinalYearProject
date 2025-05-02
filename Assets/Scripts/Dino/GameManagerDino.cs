@@ -59,6 +59,7 @@ public class GameManagerDino : MonoBehaviour
         scoreText.text = Mathf.FloorToInt(score).ToString();
     }
 
+    // Starts the game and spawner
     public void Play()
     {
         ObstacleMovement[] obstacles = FindObjectsOfType<ObstacleMovement>();
@@ -83,11 +84,13 @@ public class GameManagerDino : MonoBehaviour
         UpdateHighscore();
     }
 
+    // reloads scene
     public void Retry()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    //Ends Game and changes stats
     public void GameOver()
     {
         SoundManager.instance.PlaySoundClip(gameOverSoundClip, transform, 1f);
@@ -112,6 +115,7 @@ public class GameManagerDino : MonoBehaviour
         Debug.Log("lose");
     }
 
+    //Updates Highscore
     private void UpdateHighscore()
     {
         float dinoHighscore = PlayerPrefs.GetFloat("dinoHighscore", 0);

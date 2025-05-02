@@ -16,6 +16,7 @@ public class PlayerStats : MonoBehaviour
     public float Fats {  get => fats; set => fats = Mathf.Clamp(value, MinValue, MaxValue); }
     public float Water {  get => water; set => water = Mathf.Clamp(value, MinValue, MaxValue); }
 
+    //Finds instances of player stats and destroys if there are any
     private void Awake()
     {
         if (Instance == null)
@@ -31,6 +32,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    //Updates Slider UI on screen
     public void RefreshUI()
     {
         var canvas = FindAnyObjectByType<CanvasManager>();
@@ -45,6 +47,7 @@ public class PlayerStats : MonoBehaviour
         SaveStats();
     }
 
+    //Loads stats
     public void LoadStats()
     {
         Health = PlayerPrefs.GetFloat("Health", 20f);
@@ -55,6 +58,7 @@ public class PlayerStats : MonoBehaviour
         Water = PlayerPrefs.GetFloat("Water", 20f);
     }
 
+    //Saves Stats
     public void SaveStats()
     {
         PlayerPrefs.SetFloat("Health", Health);

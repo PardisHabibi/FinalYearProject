@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource soundEffect;
     [SerializeField] private AudioMixer audioMixer;
 
+    // Set player saved volumes
     private void Awake()
     {
         if (instance == null)
@@ -25,6 +26,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    //creates, plays and destroys audio clips
     public void PlaySoundClip(AudioClip clip, Transform spawntransform, float volume)
     {
         AudioSource audioSource = Instantiate(soundEffect, spawntransform.position, Quaternion.identity);
@@ -34,6 +36,7 @@ public class SoundManager : MonoBehaviour
         Destroy(audioSource.gameObject, audioSource.clip.length);
     }
 
+    //Scripts to set different volumes
     public void SetMasterVolume(float volume)
     {
         audioMixer.SetFloat("masterVolume", volume);

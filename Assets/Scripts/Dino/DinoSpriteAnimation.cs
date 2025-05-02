@@ -11,11 +11,13 @@ public class DinoSpriteAnimation : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    //Call to start animating dino
     private void OnEnable()
     {
         Invoke(nameof(Animate), 0f);
     }
 
+    // 'Animate' dino
     private void Animate()
     {
         frame++;

@@ -15,14 +15,14 @@ public class Invaders : MonoBehaviour
     public int invadersAlive;
     public GameObject win;
 
-    //
+    //Calls to spawn invaders
     private void Awake()
     {
         InvaderSpawn();
         invadersAlive = TotalInvaders;
     }
 
-    //
+    //Wins game when there are no invaders left
     private void Update()
     {
         InvaderMovement();
@@ -32,7 +32,7 @@ public class Invaders : MonoBehaviour
         }
     }
 
-    //
+    //Spawns invaders in a grid pattern
     private void InvaderSpawn()
     {
         for (int row = 0; row < rows; row++)
@@ -54,7 +54,7 @@ public class Invaders : MonoBehaviour
         }
     }
 
-    //
+    //moves invaders left to right and down
     private void InvaderMovement()
     {
         Vector3 leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero);
@@ -79,7 +79,7 @@ public class Invaders : MonoBehaviour
         }
     }
 
-    //
+    //moves invaders down
     private void Advance()
     {
         direction.x *= -1f;
@@ -88,14 +88,14 @@ public class Invaders : MonoBehaviour
         transform.position = position;
     }
 
-    //
+    // makes invaders faster as more die
     private void InvaderDestroyed()
     {
         speed += 0.1f;
         invadersAlive--;
     }
 
-    //
+    // wins game
     private void Win()
     {
         Time.timeScale = 0f;

@@ -17,6 +17,7 @@ public class PlayerSpriteManager : MonoBehaviour
         UpdatePlayerSprite();
     }
 
+    // Changes sprite based on health/hygiene
     private void UpdatePlayerSprite()
     {
         float health = PlayerStats.Instance.Health;

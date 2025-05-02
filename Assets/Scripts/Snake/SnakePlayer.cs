@@ -28,6 +28,7 @@ public class SnakePlayer : MonoBehaviour
         play.SetActive(true);
     }
 
+    //Starts game
     public void Play()
     {
         play.SetActive(false);
@@ -40,6 +41,7 @@ public class SnakePlayer : MonoBehaviour
         }
     }
 
+    //Moves Snake in intervals
     private void Update()
     {
         MovementInput();
@@ -52,6 +54,7 @@ public class SnakePlayer : MonoBehaviour
         }
     }
 
+    //Moves snake based on users keypress
     private void MovementInput()
     {
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && direction != Vector3.down)
@@ -72,6 +75,7 @@ public class SnakePlayer : MonoBehaviour
         }
     }
 
+    // Moves snake
     private void MoveSnake()
     {
         Vector3 prevPosition = transform.position;
@@ -88,6 +92,7 @@ public class SnakePlayer : MonoBehaviour
         }
     }
 
+    // Adds to snake body
     private void Grow()
     {
         SoundManager.instance.PlaySoundClip(growSoundClip, transform, 1f);
@@ -100,6 +105,7 @@ public class SnakePlayer : MonoBehaviour
         snakeBody.Add(body);
     }
 
+    //Ends game if snake hits a wall
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Score"))
@@ -123,6 +129,7 @@ public class SnakePlayer : MonoBehaviour
         }
     }
 
+    //reloads scene
     public void Retry()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
