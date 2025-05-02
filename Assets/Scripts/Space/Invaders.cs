@@ -116,12 +116,13 @@ public class Invaders : MonoBehaviour
 
             if (Random.value < (1f / (float)invadersAlive))
             {
-                Instantiate(bullet, invader.position, Quaternion.identity);
+                //Instantiate(bullet, invader.position, Quaternion.identity);
                 break;
             }
         }
     }
 
+    //
     private void Win()
     {
         SoundManager.instance.PlaySoundClip(winSoundClip, transform, 1f);

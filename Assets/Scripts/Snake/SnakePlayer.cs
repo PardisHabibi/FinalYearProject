@@ -19,6 +19,8 @@ public class SnakePlayer : MonoBehaviour
     public GameObject gameOver;
     public GameObject retry;
     [SerializeField] private AudioClip gameOverSoundClip;
+    [SerializeField] private AudioClip growSoundClip;
+
 
     private void Awake()
     {
@@ -88,6 +90,7 @@ public class SnakePlayer : MonoBehaviour
 
     private void Grow()
     {
+        SoundManager.instance.PlaySoundClip(growSoundClip, transform, 1f);
         Transform body = Instantiate(BodyPrefab);
         Vector3 spawnPosition = snakeBody[^1].position;
 

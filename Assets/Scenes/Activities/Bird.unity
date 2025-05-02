@@ -905,6 +905,7 @@ MonoBehaviour:
   gameOver: {fileID: 1990543543}
   instruction: {fileID: 1013952710}
   gameOverSoundClip: {fileID: 8300000, guid: e11a5a019377fbd4c81caa0adcb4c236, type: 3}
+  pointSoundClip: {fileID: 8300000, guid: 02f98902d77f7431cb0c64b9fe4744fc, type: 3}
 --- !u!4 &1056612615
 Transform:
   m_ObjectHideFlags: 0

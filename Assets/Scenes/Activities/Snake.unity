@@ -798,6 +798,7 @@ MonoBehaviour:
   gameOver: {fileID: 1254766670}
   retry: {fileID: 2098957460}
   gameOverSoundClip: {fileID: 8300000, guid: e11a5a019377fbd4c81caa0adcb4c236, type: 3}
+  growSoundClip: {fileID: 8300000, guid: 4bc21899eae7448ccaf4ebdd49cfcd9f, type: 3}
 --- !u!1001 &334168964
 PrefabInstance:
   m_ObjectHideFlags: 0

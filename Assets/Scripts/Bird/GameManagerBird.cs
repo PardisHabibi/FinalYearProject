@@ -12,7 +12,8 @@ public class GameManagerBird : MonoBehaviour
     private int score;
     public TextMeshProUGUI instruction;
     [SerializeField] private AudioClip gameOverSoundClip;
- 
+    [SerializeField] private AudioClip pointSoundClip;
+
     // Start the game paused
     private void Awake()
     {
@@ -66,6 +67,7 @@ public class GameManagerBird : MonoBehaviour
     //Increase when player gets through pipe
     public void IncreaseScore()
     {
+        SoundManager.instance.PlaySoundClip(pointSoundClip, transform, 1f);
         score++;
         scoreText.text = score.ToString();
     }
