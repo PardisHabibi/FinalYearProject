@@ -9,7 +9,7 @@ public class GameManagerDino : MonoBehaviour
     public static GameManagerDino Instance { get; private set; }
     public float initialSpeed = 1f;
     public float speedIncrease = 2f;
-    public float speed { get; private set; }
+    public float Speed { get; private set; }
     [SerializeField] private Character character;
     [SerializeField] private ObstacleSpawner spawner;
     [SerializeField] private AudioClip gameOverSoundClip;
@@ -36,7 +36,7 @@ public class GameManagerDino : MonoBehaviour
 
         UpdateHighscore();
         Time.timeScale = 0f;
-        speed = 0f;
+        Speed = 0f;
         enabled = false;
         gameOver.SetActive(false);
         retry.SetActive(false);
@@ -54,8 +54,8 @@ public class GameManagerDino : MonoBehaviour
     //increase game speed overtime
     private void Update()
     {
-        speed += speedIncrease * Time.deltaTime;
-        score += speed * Time.deltaTime;
+        Speed += speedIncrease * Time.deltaTime;
+        score += Speed * Time.deltaTime;
         scoreText.text = Mathf.FloorToInt(score).ToString();
     }
 
@@ -67,7 +67,7 @@ public class GameManagerDino : MonoBehaviour
             Destroy(obstacle.gameObject);
         }
 
-        speed = initialSpeed;
+        Speed = initialSpeed;
         Time.timeScale = 1f;
         score = 0f;
         enabled = true;
@@ -91,7 +91,7 @@ public class GameManagerDino : MonoBehaviour
     public void GameOver()
     {
         SoundManager.instance.PlaySoundClip(gameOverSoundClip, transform, 1f);
-        speed = 0f;
+        Speed = 0f;
         Time.timeScale = 0f;
         enabled = false;
         UpdateHighscore();

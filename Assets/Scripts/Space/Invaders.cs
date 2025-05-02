@@ -13,8 +13,6 @@ public class Invaders : MonoBehaviour
 
     public int TotalInvaders => rows * cols;
     public int invadersAlive;
-    public float attackRate;
-    public Bullet bullet;
     public GameObject win;
 
     //
