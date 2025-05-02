@@ -16,19 +16,12 @@ public class Invaders : MonoBehaviour
     public float attackRate;
     public Bullet bullet;
     public GameObject win;
-    [SerializeField] private AudioClip winSoundClip;
 
     //
     private void Awake()
     {
         InvaderSpawn();
         invadersAlive = TotalInvaders;
-    }
-
-    //
-    public void Start()
-    {
-        InvokeRepeating(nameof(InvaderAttack), attackRate, attackRate);
     }
 
     //
@@ -105,27 +98,8 @@ public class Invaders : MonoBehaviour
     }
 
     //
-    private void InvaderAttack()
-    {
-        foreach (Transform invader in transform)
-        {
-            if (!invader.gameObject.activeInHierarchy)
-            {
-                continue;
-            }
-
-            if (Random.value < (1f / (float)invadersAlive))
-            {
-                //Instantiate(bullet, invader.position, Quaternion.identity);
-                break;
-            }
-        }
-    }
-
-    //
     private void Win()
     {
-        SoundManager.instance.PlaySoundClip(winSoundClip, transform, 1f);
         Time.timeScale = 0f;
         win.SetActive(true);
     }
