@@ -9,7 +9,6 @@ public class CanvasManager : MonoBehaviour
     public Slider proteins;
     public Slider fats;
     public Slider water;
-    public Slider volume;
 
     private const float MaxStatValue = 20f;
     private const float MinStatValue = 0f;
